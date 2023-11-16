@@ -1,0 +1,31 @@
+<!--
+  @description       : 
+  @author            : Mustafa Basol
+  @group             : 
+  @last modified on  : 11-09-2023
+  @last modified by  : Mustafa Basol
+-->
+<template>
+  <div class="slds-card">
+    <div class="slds-card__header slds-grid">
+      <h2 class="slds-text-heading_small">Product Categories</h2>
+    </div>
+    <div class="slds-card__body slds-card__body_inner">
+      <button onclick={goToParentCategory}>Go to Parent Category</button>
+      <ul class="slds-list_ordered">
+        <!-- Loop through categories and display them -->
+        <template for:each={categories} for:item="category">
+          <li key={category.Id}>
+            <a
+              href="javascript:void(0);"
+              data-categoryid={category.Id}
+              onclick={handleCategorySelection}
+            >
+              {category.Name}
+            </a>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+</template>
