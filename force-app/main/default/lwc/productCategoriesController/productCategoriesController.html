@@ -1,0 +1,53 @@
+<!--
+  @description       : 
+  @author            : Mustafa Basol
+  @group             : 
+  @last modified on  : 11-17-2023
+  @last modified by  : Mustafa Basol
+-->
+<template>
+    <lightning-card class="cardContainer slds-var-m-right_medium">
+        <div>
+                <lightning-button variant="brand"
+                label="Filter" 
+                title="Filter the Products" 
+                icon-name="utility:search" 
+                class="slds-align_absolute-center"
+                onclick={handleFilterClick}>
+                </lightning-button>
+                <br>
+                <div class="slds-combobox_container">
+                <lightning-combobox
+                    class="parentCategory"
+                    label="Parent Category"
+                    placeholder="Select Parent Category"
+                    value={selectedParentCategory}
+                    options={parentCategories}
+                    onchange={handleParentCategoryChange}>
+                </lightning-combobox>
+            <template if:true={subCategories1} >
+                        <lightning-combobox
+                        class="subCategory1"
+                        label="Sub Category 1"
+                        placeholder="Select Sub Category"
+                        value={selectedSubCategory1}
+                        options={subCategories1}
+                        onchange={handleSubCategory1Change}>
+                    </lightning-combobox>
+            </template>
+
+            <template if:true={subCategories2}>
+                <lightning-combobox
+                    class="subCategory2"
+                    label="Sub Category 2"
+                    placeholder="Select Sub Category"
+                    value={selectedSubCategory2}
+                    options={subCategories2}
+                    onchange={handleSubCategory2Change}>
+                </lightning-combobox>
+            </template>
+            </div>
+        </div>
+    </lightning-card> 
+
+</template>

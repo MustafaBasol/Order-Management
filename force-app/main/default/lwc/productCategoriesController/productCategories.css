@@ -1,0 +1,22 @@
+.parentCategory, .subCategory1, .subCategory2 {
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+.parentCategory {
+    padding-left: 10px;
+}
+
+.subCategory1 {
+    padding-left: 20px;
+}
+
+.subCategory2 {
+    padding-left: 30px;
+}
+
+.cardContainer {
+    height: 100%;
+    height: 20rem;
+    max-height: 300px;
+}
