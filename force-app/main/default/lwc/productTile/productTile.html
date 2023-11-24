@@ -1,0 +1,47 @@
+<!--
+  @description       : 
+  @author            : Mustafa Basol
+  @group             : 
+  @last modified on  : 11-23-2023
+  @last modified by  : Mustafa Basol
+-->
+
+<template>
+    <div class="product-tile-container" onclick={handleProductClick}>
+        <img
+            src={productinfo.imageUrlHero}
+            class="product slds-align_absolute-center"
+            alt="Product picture"
+        />
+        <div class="product-desc-container slds-grid_align-spread">
+            <h1 class="title">{productinfo.product.Product__r.Name}</h1>
+            <div class="product-description">
+            <p class="price slds-text-align_left">
+                Price :
+                <lightning-formatted-number
+                    format-style="currency"
+                    currency-code="USD"
+                    value={productinfo.price}
+                    class="price slds-text-align_left"
+                    maximum-fraction-digits="0"
+                ></lightning-formatted-number>
+            </p>
+            </div>
+            <template lwc:if={productinfo.outOfStock}>
+                <p class="out-of-stock slds-text-align_center">Out of Stock</p>
+            </template>
+            <template lwc:else>
+                <div class="quantity-container slds-form-element slds-text-align_center">
+                    <label class="slds-form-element__label slds-m-right_none" for="example-centered">Quantity</label>
+                        <div class="slds-form-element__control">
+                        <lightning-button-icon onclick={handleDecreaseClick} class="slds-button slds-button_icon slds-button_icon-small slds-input__button_decrement" icon-name="utility:dash"  alternative-text="Decrease" title="Settings"></lightning-button-icon>
+                        <input type="number" id="example-centered" value={quantity} onchange={handleQuantityOnChange} class="slds-input slds-input_counter" />
+                        <lightning-button-icon onclick={handleIncreaseClick} class="slds-button slds-button_icon slds-button_icon-small slds-input__button_increment" icon-name="utility:add"  alternative-text="Increase" title="Settings"></lightning-button-icon>
+                        </div>
+                    </div> 
+                 <lightning-button variant="brand" label="Add To Cart" title="Add To Cart" icon-name="utility:cart" icon-position="right" class="slds-var-m-around_medium slds-align_absolute-center"></lightning-button>
+            </template>
+            
+        </div>
+    </div>
+</template>

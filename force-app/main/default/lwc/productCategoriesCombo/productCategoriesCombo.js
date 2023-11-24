@@ -1,5 +1,5 @@
 import { LightningElement, api, wire, track } from 'lwc';
-import getCategories from "@salesforce/apex/ProductCategoryController.getCategories";
+import getCategories from "@salesforce/apex/ProductCategoriesController.getCategories";
 
 
 export default class ProductCategoriesCombo extends LightningElement {
