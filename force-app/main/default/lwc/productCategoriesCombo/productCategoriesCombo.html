@@ -2,10 +2,11 @@
   @description       : 
   @author            : Mustafa Basol
   @group             : 
-  @last modified on  : 11-23-2023
+  @last modified on  : 11-24-2023
   @last modified by  : Mustafa Basol
 -->
 <template>
+    <div class="c-container">
     <lightning-card class="cardContainer slds-var-m-right_medium">
         <div>
                 <lightning-button variant="brand"
@@ -16,7 +17,10 @@
                 onclick={handleFilterClick}>
                 </lightning-button>
                 <br>
-                <div class="slds-combobox_container">
+
+                <lightning-layout horizontal-align="space">
+                    <lightning-layout-item padding="around-small">
+                        <div class="custom-box">
                 <lightning-combobox
                     class="parentCategory"
                     label="Parent Category"
@@ -25,6 +29,11 @@
                     options={parentCategories}
                     onchange={handleParentCategoryChange}>
                 </lightning-combobox>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <div class="custom-box">
+                
             <template if:true={subCategories1} >
                         <lightning-combobox
                         class="subCategory1"
@@ -35,7 +44,12 @@
                         onchange={handleSubCategory1Change}>
                     </lightning-combobox>
             </template>
+        </div>
+    </lightning-layout-item>
 
+    <lightning-layout-item padding="around-small">
+        <div class="custom-box">
+       
             <template if:true={subCategories2}>
                 <lightning-combobox
                     class="subCategory2"
@@ -45,9 +59,13 @@
                     options={subCategories2}
                     onchange={handleSubCategory2Change}>
                 </lightning-combobox>
+                
             </template>
-            </div>
+        </div>
+    </lightning-layout-item>
+        </lightning-layout>
         </div>
     </lightning-card> 
+</div>
 
 </template>

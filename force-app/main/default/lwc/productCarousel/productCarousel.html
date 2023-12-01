@@ -1,0 +1,16 @@
+<!--
+  @description       : 
+  @author            : Mustafa Basol
+  @group             : 
+  @last modified on  : 12-01-2023
+  @last modified by  : Mustafa Basol
+-->
+<template>
+    <div class="slds-carousel" data-cycle-pager-active="1">
+        <template for:each={productImages} for:item="image">
+            <div key={image} class="slds-carousel__panels">
+                <img src={image} alt="Product Image" class="slds-carousel__image" />
+            </div>
+        </template>
+    </div>
+</template>

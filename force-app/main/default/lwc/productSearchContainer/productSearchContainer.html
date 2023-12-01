@@ -2,7 +2,7 @@
   @description       : 
   @author            : Mustafa Basol
   @group             : 
-  @last modified on  : 11-23-2023
+  @last modified on  : 12-01-2023
   @last modified by  : Mustafa Basol
 -->
 <template>
@@ -11,34 +11,27 @@
             <c-product-categories-combo onfilter={handleFilter} class="categories"></c-product-categories-combo>        
         </div>
         <div class="slds-col slds-size_6-of-6 slds-card">
-                <template lwc:if={productsData}>
-                    
-                    <template lwc:if={productsData.length}>
-                        <lightning-layout multiple-rows="true">
-                            <template
-                                for:each={productsData}
-                                for:item="productInfo"
-                            >
-                                <lightning-layout-item  key={productInfo} size="4" class="custom-box" padding="around-small">
-                                    <c-product-tile
-                                                productinfo={productInfo}
-                                                onselected={handleProductSelected}
-                                                >
-                                    </c-product-tile>
-                                </lightning-layout-item>
-                            </template>
-                        </lightning-layout>
-                    </template>
-
-                    <template lwc:else>
-                            <p>There are no products matching your current selection</p>
+            <template lwc:if={productsData}>
+                <template lwc:if={productsData.length}>
+                    <lightning-layout multiple-rows="true">
+                        <template for:each={productsData} for:item="productInfo">
+                            <lightning-layout-item key={productInfo} size="4" class="custom-box" padding="around-small">
+                                <c-product-tile
+                                productinfo={productInfo}
+                                onselected={handleProductSelected}
+                                ></c-product-tile>
+                            </lightning-layout-item>
                         </template>
-                    </template>
-
-                <template lwc:if={error}>
-                    <p>An Error Occured while Filtering the Products! {error}></p>
+                    </lightning-layout>
                 </template>
-            </div>
-         <!-- <c-product-tile-list></c-product-tile-list> -->   
-      </div>
+                <template lwc:else>
+                    <p>There are no products matching your current selection</p>
+                </template>
+            </template>
+
+            <template lwc:if={error}>
+                <p>An Error Occured while Filtering the Products! {error}></p>
+            </template>
+        </div>
+    </div>
 </template>

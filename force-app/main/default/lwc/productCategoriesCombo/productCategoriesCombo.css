@@ -21,3 +21,11 @@
     max-height: 300px;
 }
 
+.custom-box {
+    text-align: center;
+    background-color: #f4f6f9;
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+    width: 500px;
+}
+
